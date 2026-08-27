@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.5.4",
+    "bootstrap": "5.3.8",
     "cross-env": "^10.1.0",
     "hugo-extended": "0.164.0",
     "postcss": "^8.5.26",
