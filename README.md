@@ -1,3 +1,5 @@
+[![Deploy to GitHub Pages](https://github.com/RadioCommunicationsVolunteers/radiocommunicationsvolunteers.github.io/actions/workflows/deploy-github-pages.yml/badge.svg?branch=main)](https://github.com/RadioCommunicationsVolunteers/radiocommunicationsvolunteers.github.io/actions/workflows/deploy-github-pages.yml)
+
 # Docsy Example
 
 [Docsy][] is a [Hugo theme module][] for technical documentation sites,
