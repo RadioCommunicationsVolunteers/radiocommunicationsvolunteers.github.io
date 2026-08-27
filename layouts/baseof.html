@@ -11,6 +11,9 @@
     <header>
       {{ partial "navbar.html" . }}
     </header>
+    <button class="rcv-back-to-top" type="button" aria-label="Back to top">
+      <span aria-hidden="true">&#8593;</span>
+    </button>
     <div class="container-fluid td-default td-outer">
       <main role="main" class="td-main">
         {{ block "main" . }}{{ end }}

@@ -79,6 +79,7 @@ window.markmap = {
   {{ template "algolia/scripts" .Site.Params.search.algolia -}}
 {{ end -}}
 <script src='{{ "js/tabpane-persist.js" | relURL }}'></script>
+<script src='{{ "js/rcv-back-to-top.js" | relURL }}'></script>
 {{ partial "hooks/body-end.html" . -}}
 
 {{ define "algolia/scripts" -}}

@@ -7,8 +7,8 @@ params:
 
 {{% blocks/cover
   title="Active. Experienced. Reliable."
-  height="full td-below-navbar"
-  color="bg-info bg-gradient td-below-navbar"
+  height="full"
+  color="bg-info bg-gradient"
 %}}
 
 {{% param description %}}  
