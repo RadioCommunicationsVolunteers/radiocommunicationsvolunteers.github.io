@@ -1,5 +1,9 @@
-module github.com/google/docsy-example
+module radiocommunicationsvolunteers.com
 
-go 1.12
+go 1.26.2
 
-require github.com/google/docsy/theme v0.0.0-20260616181543-6fdfd21b0350 // indirect
+require (
+	github.com/FortAwesome/Font-Awesome v0.0.0-20241216213156-af620534bfc3 // indirect
+	github.com/google/docsy/theme v0.16.0 // indirect
+	github.com/twbs/bootstrap v5.3.8+incompatible // indirect
+)

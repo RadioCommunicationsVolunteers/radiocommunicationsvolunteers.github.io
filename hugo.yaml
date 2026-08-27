@@ -1,14 +1,18 @@
-baseURL: https://radiocommunicationvolunteers.github.io
-title: Goldydocs
+baseURL: 'https://radiocommunicationsvolunteers.github.io'
+title: 'Radio Communications Volunteers'
+subtitle: 'A 501(c)(3) non-profit amateur radio organization of St. Joseph County, Indiana'
+theme: 'docsy'
 
 # cSpell:ignore goldmark github hugo readingtime docsy subdir lastmod pygments linenos catmullrom norsk gu slugorcontentbasename
 
 # Language settings
-contentDir: content/en
+layoutDir: layouts
+contentDir: content
 defaultContentLanguage: en
 defaultContentLanguageInSubdir: false
+
 # Useful when translating.
-enableMissingTranslationPlaceholders: true
+enableMissingTranslationPlaceholders: false
 
 enableRobotsTXT: true
 
@@ -17,6 +21,11 @@ enableGitInfo: true
 
 # Comment out to disable taxonomies in Docsy
 # disableKinds: [taxonomy]
+
+build:
+  build.cachebusters:
+    source: 'scss'
+    target: 'css'
 
 # You can add your own taxonomies
 taxonomies:
@@ -50,33 +59,8 @@ permalinks:
 # Image processing configuration.
 imaging:
   resampleFilter: CatmullRom
-
-# Language configuration
-languages:
-  en:
-    label: English
-    title: Goldydocs
-    params:
-      description: A Docsy example site
-  # cSpell:disable
-  no:
-    label: Norsk
-    contentDir: content/no
-    title: Gulldoks
-    params:
-      description: Docsy er operativsystem for skyen
-      time_format_default: 02.01.2006
-      time_format_blog: 02.01.2006
-  fa:
-    direction: rtl
-    label: 'فارسی (Persian)'
-    contentDir: content/fa
-    title: 'اسناد گلدی'
-    params:
-      description: 'یک نمونه برای پوسته داکسی'
-      time_format_default: 2006.01.02
-      time_format_blog: 2006.01.02
-  # cSpell:enable
+  quality: 75
+  anchor: Smart
 
 markup:
   goldmark:
@@ -96,7 +80,7 @@ markup:
 
 # Comment out if you don't want the "print entire section" link enabled.
 outputs:
-  home: [HTML, print, RSS, redirects]
+  home: [HTML, print, RSS]
   section: [HTML, print, RSS]
 
 params:
@@ -110,7 +94,7 @@ params:
     # set taxonomyPageHeader = [] to hide taxonomies on the page headers
     taxonomyPageHeader: [tags, categories]
 
-  privacy_policy: https://policies.google.com/privacy
+  # privacy_policy: https://policies.google.com/privacy
 
   # First one is picked as the Twitter card image if not set on page.
   # images: [images/project-illustration.png]
@@ -130,10 +114,10 @@ params:
   version: 0.15.1-dev
 
   # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-  github_repo: https://github.com/google/docsy-example
+  github_repo: https://github.com/RadioCommunicationVolunteers
 
   # An optional link to a related project repo. For example, the sibling repository where your product code lives.
-  github_project_repo: https://github.com/google/docsy
+  github_project_repo: https://github.com/RadioCommunicationVolunteers/radiocommunicationvolunteers.github.io
 
   # Specify a value here if your content directory is not in your repo's root directory
   # github_subdir: ""
@@ -179,7 +163,7 @@ params:
     # If you want this feature, but occasionally need to remove the "Feedback" section from a single page,
     # add "hide_feedback: true" to the page's front matter.
     feedback:
-      enable: true
+      enable: false
       # The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
       yes: >-
         Glad to hear it! Please <a
@@ -194,8 +178,8 @@ params:
     # If you want this feature, but occasionally need to remove the Reading time from a single page,
     # add "hide_readingtime: true" to the page's front matter
     readingtime:
-      enable: false
-  mainBranchPreviewURL: https://main--goldydocs.netlify.app/
+      enable: true
+  # mainBranchPreviewURL: https://main--goldydocs.netlify.app/
   # Docs helpers: use with _param
   btn-lg: class="btn btn-lg btn-{1}" role="button"
   FA: <i class="fa-{1} fa-{2} text-{3} px-1"></i>
@@ -245,7 +229,22 @@ module:
   # workspace: docsy.work
   hugoVersion:
     extended: true
-    min: 0.158.0
+    min: 0.160.1
   imports:
     - path: github.com/google/docsy/theme
       disable: false
+    - path: 'github.com/twbs/bootstrap'
+      disable: false
+      mounts:
+        - source: 'scss'
+          target: 'assets/vendor/bootstrap/scss'
+        - source: 'dist/js'
+          target: 'assets/vendor/bootstrap/dist/js'
+    - path: 'github.com/FortAwesome/Font-Awesome'
+      disable: false
+      mounts:
+        - source: 'scss'
+          target: 'assets/vendor/Font-Awesome/scss'
+        - source: 'webfonts'
+          target: 'static/webfonts'
+
