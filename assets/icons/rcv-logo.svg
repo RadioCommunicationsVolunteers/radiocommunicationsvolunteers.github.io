@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Emergency red background -->
+  <circle cx="100" cy="100" r="95" fill="#C82333"/>
+
+  <!-- Filled St. Joseph County outline (dark grey fill + darker border) -->
+  <path d="M40 55 L150 55 L150 145 L60 145 L60 120 L40 120 Z"
+        fill="#4A4A4A" stroke="#2E2E2E" stroke-width="6" stroke-linejoin="round"/>
+
+  <!-- Larger tower base (triangular lattice) -->
+  <path d="M70 175 L130 175 L100 90 Z"
+        fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linejoin="round"/>
+
+  <!-- Larger tower cross‑braces -->
+  <line x1="70" y1="175" x2="120" y2="150" stroke="#FFFFFF" stroke-width="3"/>
+  <line x1="130" y1="175" x2="80" y2="150" stroke="#FFFFFF" stroke-width="3"/>
+  <line x1="80" y1="150" x2="115" y2="130" stroke="#FFFFFF" stroke-width="3"/>
+  <line x1="120" y1="150" x2="85" y2="130" stroke="#FFFFFF" stroke-width="3"/>
+  <line x1="85" y1="130" x2="110" y2="115" stroke="#FFFFFF" stroke-width="3"/>
+  <line x1="115" y1="130" x2="90" y2="115" stroke="#FFFFFF" stroke-width="3"/>
+
+  <!-- Larger beacon -->
+  <circle cx="100" cy="90" r="7" fill="#FFFFFF"/>
+
+  <!-- Smaller upward RF waves, scaled slightly larger overall -->
+  <path d="M85 83 a9 6 0 0 1 30 0"
+        fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M75 78 a10 7 0 0 1 50 0"
+        fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M65 73 a11 8 0 0 1 70 0"
+        fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+</svg>
