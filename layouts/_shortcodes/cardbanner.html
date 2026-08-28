@@ -1,43 +1,65 @@
-{{ $lang := default "" (.Get "lang") -}}
-{{ $highlight := default "" (.Get "highlight") -}}
-{{ $imgPos := default "left" (.Get "imgPos") -}}
+{{- $lang := default "" (.Get "lang") -}}
+{{- $highlight := default "" (.Get "highlight") -}}
+{{- $imgPos := default "left" (.Get "imgPos") -}}
 
 <div class="card w-100 mw-100 p-3 m-0">
-{{ with $.Get "header" -}}
+{{- with $.Get "header" -}}
   <div class="row g-0">
     <div class="col-md-12">
         <div class="card-header">
-        {{ . | $.Page.RenderString }}
+        {{- . | $.Page.RenderString -}}
         </div>
     </div>
   </div>
-{{ end -}}
+{{- end -}}
+  {{- with $.Get "img" -}}
+      {{- if eq $imgPos "above" -}}
+      <div class="row cardbanner-image-row g-0 p-0 m-0" style="aspect-ratio: 1.45; overflow: hidden;">
+        <img src="{{ . }}" class="cardbanner-image img-fluid rounded-start" style="height: 100%; object-fit: cover; object-position: center 60%; width: 100%;" alt="...">
+      </div>
+      {{- end -}}
+    {{- end -}}
   <div class="row g-6">
-    {{- if $imgPos = "left" -}}
-    <div class="col-md-4">
-      {{ with $.Get "img" -}}
-      <img src="{{ . -}}" class="img-fluid rounded-start" alt="...">
-      {{ end -}}
-    </div>
-    {{ end -}}
-    <div class="col-md-8">
+    {{- with $.Get "img" -}}
+      {{- if eq $imgPos "left" -}}
+        <div class="col-md-4">
+          <img src="{{ . }}" class="img-fluid rounded-start" alt="...">
+        </div>
+      {{- end -}}
+    {{- end -}}
+    {{- with $.Get "img" -}}
+      {{- if (eq $imgPos "above")  -}}
+      <div class="col-md-12">
+      {{- else -}}
+      <div class="col-md-8">
+      {{- end -}}
+    {{ else }}
+        <div class="col-md-12">
+    {{- end -}}
       <div class="card-body">
-          {{ with $.Get "title" -}}
+          {{- with $.Get "title" -}}
             <h1 class="card-title">
-              {{ . | $.Page.RenderString -}}
+              {{- . | $.Page.RenderString -}}
             </h1>
-          {{ end -}}
-          {{ with $.Get "subtitle" -}}
+          {{- end -}}
+          {{- with $.Get "subtitle" -}}
             <h3 class="card-title ms-2 text-body-secondary">
-              {{ . | $.Page.RenderString -}}
+              {{- . | $.Page.RenderString -}}
             </h3>
-          {{ end -}}
-          {{ with $.Inner -}}
+          {{- end -}}
+          {{- with $.Inner -}}
             <p class="card-text">
-              {{ . -}}
+              {{- . -}}
             </p>
-          {{ end -}}
+          {{- end -}}
       </div>
     </div>
+    {{- with $.Get "img" -}}
+      {{- if eq $imgPos "right" }}
+    <div class="col-md-4">
+      <img src="{{ . }}" class="img-fluid rounded-start" alt="...">
+    </div>
+      {{- end -}}
+    {{- end -}}
   </div>
 </div>

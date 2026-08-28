@@ -5,6 +5,18 @@
   justify-content: center;
 }
 
+.cardbanner-image-row {
+  aspect-ratio: 1.45;
+  overflow: hidden;
+}
+
+.cardbanner-image {
+  height: 100%;
+  object-fit: cover;
+  object-position: center 48%;
+  width: 100%;
+}
+
 .rcv-back-to-top {
   align-items: center;
   background: var(--bs-primary);

@@ -1,0 +1,48 @@
+{{- $title := default "Volunteers Needed" (.Get "title") -}}
+
+{{- with $.Get "href" -}}
+<div class="card w-100 mw-100 p-3 m-0">
+    {{- with $.Get "header" -}}
+    <div class="row g-0">
+        <div class="col-md-12">
+            <div class="card-header">
+                {{- . | $.Page.RenderString -}}
+            </div>
+        </div>
+    </div>
+    {{- end -}}
+    <div class="row g-6">
+        <div class="col-md-12">
+            <div class="card-body">
+                {{- with $.Get "title" -}}
+                <h1 class="card-title">
+                    {{- . | $.Page.RenderString -}}
+                </h1>
+                {{- end -}}
+                {{- with $.Get "subtitle" -}}
+                <h3 class="card-title ms-2 text-body-secondary">
+                    {{- . | $.Page.RenderString -}}
+                </h3>
+                {{- end -}}
+                <p class="card-text">
+                    We're using SignUp (the leading online SignUp and reminder tool) to organize our upcoming SignUps.
+
+                    Here's how it works in 3 easy steps:
+
+                    1) Click the button below to volunteer using SignUp.
+                    2) Review the options listed and choose the spot(s) you like.
+                    3) Sign up! It's Easy - you will NOT need to register an account or keep a password on SignUp.
+
+                    <a href="{{ . }}" target="_blank" rel="noopener noreferrer"
+                        aria-label="Click to View Volunteer Opportunities on SignUp (opens in a new tab)"><img
+                            src="https://signup.com/imgs/icons/signup-choose-a-spot-btn.png"
+                            alt="Click to View Volunteer Opportunities on SignUp"></a>
+
+                    **Note:** *SignUp does not share your email address with anyone. If you prefer not to use your email
+                    address, please contact me and I can sign you up manually.*
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end -}}
