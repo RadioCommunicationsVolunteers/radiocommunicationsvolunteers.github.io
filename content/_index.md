@@ -116,12 +116,12 @@ For announcement of latest features etc.
 
   {{% /cardbanner %}}
 
-  {{% signup 
+  <!-- {{% signup 
     href="https://signup.com/go/CWgjuxx"
-  %}}
+  %}} -->
 
 
-  <!-- {{% cardbanner
+  {{% cardbanner
     title="Volunteers Needed"
   %}}
   We're using SignUp (the leading online SignUp and reminder tool) to organize our upcoming SignUps.
@@ -135,7 +135,7 @@ For announcement of latest features etc.
    <a href="https://signup.com/go/CWgjuxx" target="_blank" rel="noopener noreferrer" aria-label="Click to View Volunteer Opportunities on SignUp (opens in a new tab)"><img src="https://signup.com/imgs/icons/signup-choose-a-spot-btn.png" alt="Click to View Volunteer Opportunities on SignUp"></a>
 
   **Note:** *SignUp does not share your email address with anyone. If you prefer not to use your email address, please contact me and I can sign you up manually.*
-  {{% /cardbanner %}} -->
+  {{% /cardbanner %}}
 
 {{% /blocks/section %}}
 

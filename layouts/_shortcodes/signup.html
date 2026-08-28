@@ -10,21 +10,23 @@
             </div>
         </div>
     </div>
-    {{- end -}}
+    {{ end }}
     <div class="row g-6">
         <div class="col-md-12">
             <div class="card-body">
-                {{- with $.Get "title" -}}
+                {{ with $.Get "title" }}
                 <h1 class="card-title">
                     {{- . | $.Page.RenderString -}}
                 </h1>
-                {{- end -}}
-                {{- with $.Get "subtitle" -}}
+                {{ end -}}
+                {{- with $.Get "subtitle" }}
                 <h3 class="card-title ms-2 text-body-secondary">
                     {{- . | $.Page.RenderString -}}
                 </h3>
-                {{- end -}}
+                {{ end }}
+
                 <p class="card-text">
+                    
                     We're using SignUp (the leading online SignUp and reminder tool) to organize our upcoming SignUps.
 
                     Here's how it works in 3 easy steps:
@@ -40,6 +42,7 @@
 
                     **Note:** *SignUp does not share your email address with anyone. If you prefer not to use your email
                     address, please contact me and I can sign you up manually.*
+
                 </p>
             </div>
         </div>
