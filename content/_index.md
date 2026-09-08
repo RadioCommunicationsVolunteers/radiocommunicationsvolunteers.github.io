@@ -3,6 +3,15 @@ title: Radio Communication Volunteers
 description: Providing Radio Communication Support for Public Events and Community Emergencies.
 ---
 
+{{% alert title="⚠️ NOTICE ⚠️" color=warning %}}  
+  As of September 7th, 2026, Our weekly net will be held on the **WB9AGX** repeater with a frequency of **147.390 MHz** and a **PL tone** of **131.8**.  
+  The **145.290 MHz** repeater (*formerly N9OCB*) located at the Saint Joseph County Fairgrounds is currently under maintenance.
+
+  Thank you for your continued support. 73.  
+  *George Palmer* | KD9GXA  
+  President
+{{% /alert %}}
+
 {{% blocks/cover
   title="Active. Experienced. Reliable."
   height="full"
@@ -28,7 +37,7 @@ description: Providing Radio Communication Support for Public Events and Communi
 
 {{% blocks/lead color="primary" %}}
 
-# St. Joseph Co. Radio Communications Colunteers
+## St. Joseph Co. Radio Communications Volunteers
 
 We are a 501(c)(3) Non-profit organization founded in March 10th, 2009. We volunteer amateur radio communications for public community events, emergency communications and severe weather reporting.
 
@@ -51,7 +60,7 @@ Our monthly meetings are held on the third monday of each month at 6:30 PM EST. 
 
 ## Weekly Net
 
-Our weekly net is held at 7:00 PM EST on the N9OCB repeater on 145.290 with a PL tone of 131.8. All amateur radio operators are welcome to participate.
+Our weekly net is held at 7:00 PM EST on the **WB9AGX repeater on 147.390 with a PL tone of 131.8**. All amateur radio operators are welcome to participate.
 
 {{% /blocks/lead %}}
 {{% blocks/lead color="primary" %}}
@@ -102,13 +111,13 @@ For announcement of latest features etc.
     subtitle="An All American Christmas"
   %}}
 
-  ### What is Lights of Liberty?
+### What is Lights of Liberty?
 
   Lights of Liberty is a community fundraiser presented by the North Liberty Area Chamber of Commerce and powered by local sponsors and volunteers. Inspired by those “Hallmark-movie” hometown celebrations, we’re transforming the Stellar Trail at North Liberty Elementary into a twinkling winter walk.
   
   For more information check out their website:
 
-  ### How will Amateur Radio volunteers improve the event?
+### How will Amateur Radio volunteers improve the event?
 
   We will be focused on relaying information and trail safety. We also are planning on a unique Mesh-based solution similar to Santa Net to help create a magical experience for children.
 
