@@ -67,7 +67,10 @@ Our weekly net is held at 7:00 PM EST on the **WB9AGX repeater on 147.390 with a
 
 ## Siren Test Net
 
-At this time, we are not hosting a siren test net until further notice.
+We will doing the siren test again. As always it will be held on the first Thursday of the month. Net will be on the WB9AGX repeater around 1130 et
+the Feq. is 147.390 with a PL tone 131.8. We encourage all armatures to check in and report if they hear the sirens or not. It helps to know the siren number or
+general location when reporting. It also helps to have reports from family members as well. If you can not check but heard ot did not hear the sirens. You can email a report to the following email.
+SJRCV@yahoo.com. we then forward then to the county EMA.
 
 {{% /blocks/lead %}}
 
