@@ -21,6 +21,7 @@ If you are interested in volunteering with us, you do not need a license.
   📧 Contact US
 </button>
 
+<!-- <a href="https://signup.com/go/tctddVY?utm_source=group-badge-volunteer-green"><img src="https://vspot.s3.amazonaws.com/groups/sharing/signup-button-choose-spot.png" alt="Click to View Volunteer Opportunities on SignUp"></a> -->
 {{% /blocks/cover %}}
 
 {{% blocks/lead color="white" %}}

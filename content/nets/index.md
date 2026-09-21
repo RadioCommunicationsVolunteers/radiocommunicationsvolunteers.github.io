@@ -2,7 +2,7 @@
 title: Nets
 linkTitle: Nets
 description: Volunteering radio communication services for weekly nets and our community.
-menu: { main: { weight: 50 } }
+menu: { main: { name: "Nets",  identifier: "nets", weight: 50 } }
 ---
 
 {{% blocks/cover
@@ -16,3 +16,9 @@ menu: { main: { weight: 50 } }
 {.display-6}
 
 {{% /blocks/cover %}}
+
+{{% blocks/section %}}
+
+{{% sirentestmap %}}
+
+{{% /blocks/section %}}

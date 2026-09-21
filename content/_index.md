@@ -67,11 +67,9 @@ Our weekly net is held at 7:00 PM EST on the **WB9AGX repeater on 147.390 with a
 
 ## Siren Test Net
 
-We will doing the siren test again. As always it will be held on the first Thursday of the month. Net will be on the WB9AGX repeater around 1130 et
-the Feq. is 147.390 with a PL tone 131.8. We encourage all armatures to check in and report if they hear the sirens or not. It helps to know the siren number or
-general location when reporting. It also helps to have reports from family members as well. If you can not check but heard ot did not hear the sirens. You can email a report to the following email.
-SJRCV@yahoo.com. we then forward then to the county EMA.
-
+Siren test Nets have resumed and occur monthly on the first Thursday. The net will begin around 11:30 AM EST on the **WB9AGX repeater on 147.390 with a PL tone of 131.8**. We encourage all amateurs to check-in and report if they hear the sirens or not. It helps to know the siren number or
+general location when reporting. It also helps to have reports from family members as well. If you can not check but heard ot did not hear the sirens.
+we will forward to the county EMA any reports sent to the following email: <a href="mailto://SJRCV@yahoo.com">SJRC@Yahoo.com</a>.
 {{% /blocks/lead %}}
 
 <!-- {{% blocks/section color="primary" type="row" %}}
@@ -107,6 +105,42 @@ For announcement of latest features etc.
 
 {{% blocks/section %}}
 
+{{% cardbanner
+  title="Volunteers Needed for Iron Horse Festival"
+%}}
+
+![LaSalle Council of Scouting America](LaSalleCouncilScouting.png) ![Sakima Lodge of Order of the Arrow](SakimaLodgeOA.jpg)  
+*Hosted by LaSalle Council, Scouting America & Sakima Lodge, Order of the Arrow*
+
+**Iron Horse Festival**  
+at **Potato Creek State Park**  
+on **October 17th, 2026**
+
+## What is the Iron Horse event?
+
+  We are **tentatively** looking for volunteers to help guide kids (generally about 8-12 years old) on fox hunts, and provide kids an opportunity to talk on an HF radio. We will collaborate with a licensed amateur radio operator and a certified merit badge counselor to provide basic concepts of radio communications and then allow the kids to either fox hunt or talk on the radio. We will be trying to establish 2 fox transmitters for the event and encourage volunteers to bring tape measure Yagi antennas and a cheap radio **you are comfortable with** to help guide kids to the fox transmitter. Its a rewarding event that helps show both the youth and adults in the community that amateur radio is a healthy and growing community.
+
+  ---
+
+## Volunteers Needed!  
+
+  We're using SignUp (the leading online SignUp and reminder tool) to organize our upcoming SignUps.
+
+  Here's how it works in 3 easy steps:
+
+  1) Click the button below to volunteer using SignUp.
+  2) Review the options listed and choose the spot(s) you like.
+  3) Sign up! It's Easy - you will NOT need to register an account or keep a password on SignUp.
+
+   <a href="https://signup.com/go/vFaapLY" target="_blank" rel="noopener noreferrer" aria-label="Click to View Volunteer Opportunities on SignUp (opens in a new tab)"><img src="https://signup.com/imgs/icons/signup-choose-a-spot-btn.png" alt="Click to View Volunteer Opportunities on SignUp"></a>
+
+  **Note:** *SignUp does not share your email address with anyone. If you prefer not to use your email address, please contact me and I can sign you up manually.*
+{{% /cardbanner %}}
+
+{{% /blocks/section %}}
+
+{{% blocks/section %}}
+
   {{% cardbanner
     img="lightsofliberty.png"
     imgPos="above"
@@ -131,7 +165,6 @@ For announcement of latest features etc.
   <!-- {{% signup 
     href="https://signup.com/go/CWgjuxx"
   %}} -->
-
 
   {{% cardbanner
     title="Volunteers Needed"
