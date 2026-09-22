@@ -229,7 +229,7 @@ module:
   # workspace: docsy.work
   hugoVersion:
     extended: true
-    min: 0.160.1
+    min: '0.160.1'
   mounts:
     - source: 'node_modules/bootstrap'
       target: 'assets/vendor/bootstrap'
