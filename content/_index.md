@@ -69,7 +69,7 @@ Our weekly net is held at 7:00 PM EST on the **WB9AGX repeater on 147.390 with a
 
 Siren test Nets have resumed and occur monthly on the first Thursday. The net will begin around 11:30 AM EST on the **WB9AGX repeater on 147.390 with a PL tone of 131.8**. We encourage all amateurs to check-in and report if they hear the sirens or not. It helps to know the siren number or
 general location when reporting. It also helps to have reports from family members as well. If you can not check but heard ot did not hear the sirens.  
-we will forward to the county EMA any reports sent to the following email: [SJRCV@Yahoo.com](mailto://SJRCV@yahoo.com).
+we will forward to the county EMA any reports sent to the following email: [SJRCV@Yahoo.com](mailto:SJRCV@yahoo.com?subject=Siren%20Report).
 {{% /blocks/lead %}}
 
 <!-- {{% blocks/section color="primary" type="row" %}}
