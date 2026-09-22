@@ -75,7 +75,7 @@ We will forward any reports received to the county EMA. Click below to send a Si
 
 <!-- prettier-ignore -->
 <div class="td-cta-buttons my-5">
-  <a {{% _param btn-md primary %}} href="mailto:SJRCV@yahoo.com?subject=Siren%20Report" target="_blank" >
+  <a {{% _param btn-lg primary %}} href="mailto:SJRCV@yahoo.com?subject=Siren%20Report" target="_blank" >
     📧 Email Siren Report
   </a>
 </div>
