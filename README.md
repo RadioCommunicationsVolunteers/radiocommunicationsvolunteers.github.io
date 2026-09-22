@@ -1,4 +1,6 @@
-[![Deploy to GitHub Pages](https://github.com/RadioCommunicationsVolunteers/radiocommunicationsvolunteers.github.io/actions/workflows/deploy-github-pages.yml/badge.svg?branch=main)](https://github.com/RadioCommunicationsVolunteers/radiocommunicationsvolunteers.github.io/actions/workflows/deploy-github-pages.yml)
+[![Deploy to GitHub Pages](https://github.com/RadioCommunicationsVolunteers/radiocommunicationsvolunteers.github.io/actions/workflows/deploy-github-pages.yml/badge.svg?branch=main)](https://github.com/RadioCommunicationsVolunteers/radiocommunicationsvolunteers.github.io/actions/workflows/deploy-github-pages.yml) 
+
+[![Hugo Version](https://shields.io)](https://shields.io)
 
 # Docsy Example
 
