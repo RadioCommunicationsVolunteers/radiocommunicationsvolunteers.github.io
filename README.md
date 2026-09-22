@@ -1,6 +1,8 @@
 [![Deploy to GitHub Pages](https://github.com/RadioCommunicationsVolunteers/radiocommunicationsvolunteers.github.io/actions/workflows/deploy-github-pages.yml/badge.svg?branch=main)](https://github.com/RadioCommunicationsVolunteers/radiocommunicationsvolunteers.github.io/actions/workflows/deploy-github-pages.yml) 
 
-![Hugo Version](https://shields.io)
+![Dynamic YAML Badge](https://img.shields.io/badge/dynamic/yaml?url=https%3A%2F%2Fraw.githubusercontent.com%2FRadioCommunicationsVolunteers%2Fradiocommunicationsvolunteers.github.io%2Frefs%2Fheads%2Fmain%2Fhugo.yaml&query=%24.module.hugoVersion.min&logo=hugo&label=Hugo%20(minimum))
+
+![Go Version](https://img.shields.io/github/go-mod/go-version/RadioCommunicationsVolunteers/RadioCommunicationsVolunteers.github.io)
 
 # Docsy Example
 
