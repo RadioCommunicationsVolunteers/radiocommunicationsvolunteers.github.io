@@ -123,7 +123,7 @@ on **October 17th, 2026**
 
   We are **tentatively** looking for volunteers to help guide kids (generally about 8-12 years old) on fox hunts, and provide kids an opportunity to talk on an HF radio. We will collaborate with a licensed amateur radio operator and a certified merit badge counselor to provide basic concepts of radio communications and then allow the kids to either fox hunt or talk on the radio. We will be trying to establish 2 fox transmitters for the event and encourage volunteers to bring tape measure Yagi antennas and a cheap radio **you are comfortable with** to help guide kids to the fox transmitter. Its a rewarding event that helps show both the youth and adults in the community that amateur radio is a healthy and growing community.
 
-  ---
+---
 
 ## Volunteers Needed!  
 
@@ -183,8 +183,11 @@ on **October 17th, 2026**
   2) Review the options listed and choose the spot(s) you like.
   3) Sign up! It's Easy - you will NOT need to register an account or keep a password on SignUp.
 
-   <a href="https://signup.com/go/CWgjuxx" target="_blank" rel="noopener noreferrer" aria-label="Click to View Volunteer Opportunities on SignUp (opens in a new tab)"><img src="https://signup.com/imgs/icons/signup-choose-a-spot-btn.png" alt="Click to View Volunteer Opportunities on SignUp"></a>
-
+  <!-- prettier-ignore -->
+  <div class="td-cta-buttons my-5">
+     <a href="https://signup.com/go/CWgjuxx" target="_blank" rel="noopener noreferrer" aria-label="Click to View Volunteer Opportunities on SignUp (opens in a new tab)"><img src="https://signup.com/imgs/icons/signup-choose-a-spot-btn.png" alt="Click to View Volunteer Opportunities on SignUp"></a>
+  </div>
+  
   **Note:** *SignUp does not share your email address with anyone. If you prefer not to use your email address, please contact me and I can sign you up manually.*
   {{% /cardbanner %}}
 
