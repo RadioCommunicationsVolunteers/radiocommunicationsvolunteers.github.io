@@ -1,4 +1,4 @@
-baseURL: 'https://radiocommunicationsvolunteers.github.io'
+baseURL: 'https://RadioCommunicationsVolunteers.org'
 title: 'Radio Communications Volunteers'
 subtitle: 'A 501(c)(3) non-profit amateur radio organization of St. Joseph County, Indiana'
 theme: 'docsy'
@@ -117,7 +117,7 @@ params:
   github_repo: https://github.com/RadioCommunicationsVolunteers
 
   # An optional link to a related project repo. For example, the sibling repository where your product code lives.
-  github_project_repo: https://github.com/RadioCommunicationVolunteers/radiocommunicationsvolunteers.github.io
+  github_project_repo: https://github.com/RadioCommunicationsVolunteers/radiocommunicationsvolunteers.github.io
 
   # Specify a value here if your content directory is not in your repo's root directory
   # github_subdir: ""
