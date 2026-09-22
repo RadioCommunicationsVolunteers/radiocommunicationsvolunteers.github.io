@@ -34,39 +34,33 @@ description: Providing Radio Communication Support for Public Events and Communi
 </div>
 
 {{% blocks/link-down color="primary" %}}
-
 {{% /blocks/cover %}}
 
 {{% blocks/lead color="primary" %}}
-
 ## St. Joseph Co. Radio Communications Volunteers
 
 We are a 501(c)(3) Non-profit organization founded in March 10th, 2009. We volunteer amateur radio communications for public community events, emergency communications and severe weather reporting.
-
 {{% /blocks/lead %}}
-{{% blocks/lead color="secondary" %}}
 
+{{% blocks/lead color="secondary" %}}
 ## Our Mission
 
 We believe in serving others, in promoting amateur radio in the community and providing the training and support required to become an amateur radio operator and emergency communications provider.
-
 {{% /blocks/lead %}}
-{{% blocks/lead color="primary" %}}
 
+{{% blocks/lead color="white" %}}
 ## Monthly Meeting
 
 Our monthly meetings are held on the third monday of each month at 6:30 PM EST. Located at Riverpark branch Library 2022 Mishawaka Avenue in South Bend, IN.
-
 {{% /blocks/lead %}}
-{{% blocks/lead color="secondary" %}}
 
+{{% blocks/lead color="secondary" %}}
 ## Weekly Net
 
 Our weekly net is held at 7:00 PM EST on the **WB9AGX repeater on 147.390 with a PL tone of 131.8**. All amateur radio operators are welcome to participate.
-
 {{% /blocks/lead %}}
-{{% blocks/lead color="primary" %}}
 
+{{% blocks/lead color="white" %}}
 ## Siren Test Net
 
 Siren test Nets have resumed and occur monthly on the first Thursday. The net will begin around 11:30 AM EST on the **WB9AGX repeater on 147.390 with a PL tone of 131.8**. We encourage all amateurs to check-in and report if they hear the sirens or not. It helps to know the siren number or
@@ -75,11 +69,10 @@ We will forward any reports received to the county EMA. Click below to send a Si
 
 <!-- prettier-ignore -->
 <div class="td-cta-buttons my-5">
-  <a {{% _param btn-lg primary %}} href="mailto:SJRCV@yahoo.com?subject=Siren%20Report" target="_blank" >
+  <a {{% _param btn-lg secondary %}} href="mailto:SJRCV@yahoo.com?subject=Siren%20Report" target="_blank" >
     📧 Email Siren Report
   </a>
 </div>
-
 {{% /blocks/lead %}}
 
 <!-- {{% blocks/section color="primary" type="row" %}}
@@ -113,7 +106,7 @@ For announcement of latest features etc.
 
 {{% /blocks/section %}} -->
 
-{{% blocks/section %}}
+{{% blocks/section color="secondary" %}}
 
 {{% cardbanner
   title="Volunteers Needed for Iron Horse Festival"
@@ -152,7 +145,7 @@ on **October 17th, 2026**
 
 {{% /blocks/section %}}
 
-{{% blocks/section %}}
+{{% blocks/section color="white" %}}
 
   {{% cardbanner
     img="lightsofliberty.png"
