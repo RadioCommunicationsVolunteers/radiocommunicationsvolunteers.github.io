@@ -2,6 +2,13 @@
 title: Radio Communication Volunteers
 description: Providing Radio Communication Support for Public Events and Community Emergencies.
 ---
+<!-- prettier-ignore -->
+<style>
+  .clipped {
+    clip-path: inset(3.8px 1.5px 3.8px 1.5px); /* top right bottom left */
+    border-radius: 28.5px;
+  }
+</style>
 
 {{% alert title="⚠️ NOTICE ⚠️" color=warning %}}  
   As of September 7th, 2026, Our weekly net will be held on the **WB9AGX** repeater with a frequency of **147.390 MHz** and a **PL tone** of **131.8**.  
@@ -137,7 +144,7 @@ on **October 17th, 2026**
 
   <!-- prettier-ignore -->
   <div class="td-cta-buttons my-5">
-       <a href="https://signup.com/go/vFaapLY" target="_blank" rel="noopener noreferrer" aria-label="Click to View Volunteer Opportunities on SignUp (opens in a new tab)"><img src="https://signup.com/imgs/icons/signup-choose-a-spot-btn.png" alt="Click to View Volunteer Opportunities on SignUp"></a>
+       <a href="https://signup.com/go/vFaapLY" target="_blank" rel="noopener noreferrer" aria-label="Click to View Volunteer Opportunities on SignUp (opens in a new tab)"><img src="https://signup.com/imgs/icons/signup-choose-a-spot-btn.png" alt="Click to View Volunteer Opportunities on SignUp" class="clipped"></a>
   </div>
 
   **Note:** *SignUp does not share your email address with anyone. If you prefer not to use your email address, please contact me and I can sign you up manually.*
@@ -185,7 +192,7 @@ on **October 17th, 2026**
 
   <!-- prettier-ignore -->
   <div class="td-cta-buttons my-5">
-     <a href="https://signup.com/go/CWgjuxx" target="_blank" rel="noopener noreferrer" aria-label="Click to View Volunteer Opportunities on SignUp (opens in a new tab)"><img src="https://signup.com/imgs/icons/signup-choose-a-spot-btn.png" alt="Click to View Volunteer Opportunities on SignUp"></a>
+     <a href="https://signup.com/go/CWgjuxx" target="_blank" rel="noopener noreferrer" aria-label="Click to View Volunteer Opportunities on SignUp (opens in a new tab)"><img src="https://signup.com/imgs/icons/signup-choose-a-spot-btn.png" alt="Click to View Volunteer Opportunities on SignUp" class="clipped"></a>
   </div>
   
   **Note:** *SignUp does not share your email address with anyone. If you prefer not to use your email address, please contact me and I can sign you up manually.*
