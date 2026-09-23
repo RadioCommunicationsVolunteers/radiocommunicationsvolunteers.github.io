@@ -29,6 +29,8 @@
 <div id="map">
 {{/* Do NOT remove this comment! It ends the HTML block above. See https://spec.commonmark.org/0.30/#html-blocks, 7. */ -}}
 </div>
+
+{{< blocks/code >}}
 <script>
     /**
     * Converts a DMS string to Decimal Degrees.
@@ -298,6 +300,7 @@
             .catch(error => console.error('Error loading GeoJSON:', error));
     });
 </script>
+{{< /blocks/code >}}
 </div>
 </section>
 {{/**/ -}}
