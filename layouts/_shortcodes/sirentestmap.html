@@ -3,35 +3,36 @@
 {{ $height := .Get "height" | default "auto"  -}}
 {{ $type   := .Get "type" | default "container" -}}
 
+ <!-- Include Leaflet CSS and JS (Free & Open Source) -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+
+<style>
+    /* Ensure the map occupies the full screen or container size */
+    #map {
+        width: 80%;
+        height: 85%;
+        margin: 20;
+        padding: 0;
+    }
+</style>
+
 <div><a id="td-block-{{ .Ordinal }}" class="td-anchor-no-extra-offset"></a></div>
 <section class="row td-box td-box--{{ $col_id }} td-box--height-{{ $height }}">
 <div class="col">
-<div class="{{ $type }}">
 {{/* Do NOT remove this comment! It ends the HTML block above. See https://spec.commonmark.org/0.30/#html-blocks, 7. */}}
-{{<
-    <!-- Include Leaflet CSS and JS (Free & Open Source) -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossorigin=""/>
-    
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossorigin=""></script>
-    
-    <style>
-        /* Ensure the map occupies the full screen or container size */
-        #map {
-            width: 80%;
-            height: 85%;
-            margin: 20;
-            padding: 0;
-        }
-    </style>
-    
     <div id="map"></div>
+</div>
+</section>
+{{/**/ -}}
 
-    <script>
+<script>
         /**
         * Converts a DMS string to Decimal Degrees.
         * Supports formats like: 40° 44' 55" N, 40 44 55 N, 40:44:55S
@@ -300,8 +301,3 @@
                 .catch(error => console.error('Error loading GeoJSON:', error));
         });
     </script>
->}}
-</div>
-</div>
-</section>
-{{/**/ -}}
