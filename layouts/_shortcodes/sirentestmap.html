@@ -1,293 +1,295 @@
-{{- $title := default "Siren Test Locations" (.Get "title") -}}
+{{ $title := default "Siren Test Locations" (.Get "title") }}
 
-<!-- Include Leaflet CSS and JS (Free & Open Source) -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""/>
-
-<!-- Make sure you put this AFTER Leaflet's CSS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""></script>
-
-<style>
-    /* Ensure the map occupies the full screen or container size */
-    #map {
-        width: 80%;
-        height: 85%;
-        margin: 20;
-        padding: 0;
-    }
-</style>
-
-<div id="map"></div>
-
-<script>
-    /**
-    * Converts a DMS string to Decimal Degrees.
-    * Supports formats like: 40° 44' 55" N, 40 44 55 N, 40:44:55S
-    */
-    function dmsToDd(dmsStr) {
-        const parts = dmsStr.match(/^(\d{1,3})°\s*(\d{1,2})\s?'\s*(\d{1,2}(?:\.\d+)?)"?\s*([NSEWnsew])$/);
-        if (!parts) throw new Error("Invalid DMS string format: " + dmsStr);
-
-        const degrees = parseFloat(parts[1]);
-        const minutes = parts[2] ? parseFloat(parts[2]) / 60 : 0;
-        const seconds = parts[3] ? parseFloat(parts[3]) / 3600 : 0;
-        const direction = parts[4] ? parts[4].toUpperCase() : 'N';
-
-        let dd = degrees + minutes + seconds;
-        if (direction === 'S' || direction === 'W') {
-            dd = -dd;
+<div>
+    <!-- Include Leaflet CSS and JS (Free & Open Source) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+    
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+    
+    <style>
+        /* Ensure the map occupies the full screen or container size */
+        #map {
+            width: 80%;
+            height: 85%;
+            margin: 20;
+            padding: 0;
         }
-        return dd;
-    }
+    </style>
+    
+    <div id="map"></div>
 
-    /**
-     * Converts Decimal Degrees (lat, lon) to a Maidenhead Locator (up to 8 characters).
-     */
-    function ddToMaidenhead(lat, lon, precision = 6) {
-        if (lat < -90 || lat > 90) throw new Error("Latitude must be between -90 and 90");
-        if (lon < -180 || lon > 180) throw new Error("Longitude must be between -180 and 180");
-
-        // Adjust scale to start from South Pole and Antimeridian
-        let ln = lon + 180;
-        let lt = lat + 90;
-
-        let locator = "";
-
-        // 1. Fields (Pairs 1: Characters)
-        locator += String.fromCharCode(65 + Math.floor(ln / 20));
-        locator += String.fromCharCode(65 + Math.floor(lt / 10));
-
-        // 2. Squares (Pair 2: Numbers)
-        ln %= 20;
-        lt %= 10;
-        locator += Math.floor(ln / 2);
-        locator += Math.floor(lt / 1);
-
-        if (precision >= 6) {
-            // 3. Subsquares (Pair 3: Lowercase Characters)
-            ln %= 2;
-            lt %= 1;
-            locator += String.fromCharCode(97 + Math.floor(ln * 12));
-            locator += String.fromCharCode(97 + Math.floor(lt * 24));
+    <script>
+        /**
+        * Converts a DMS string to Decimal Degrees.
+        * Supports formats like: 40° 44' 55" N, 40 44 55 N, 40:44:55S
+        */
+        function dmsToDd(dmsStr) {
+            const parts = dmsStr.match(/^(\d{1,3})°\s*(\d{1,2})\s?'\s*(\d{1,2}(?:\.\d+)?)"?\s*([NSEWnsew])$/);
+            if (!parts) throw new Error("Invalid DMS string format: " + dmsStr);
+    
+            const degrees = parseFloat(parts[1]);
+            const minutes = parts[2] ? parseFloat(parts[2]) / 60 : 0;
+            const seconds = parts[3] ? parseFloat(parts[3]) / 3600 : 0;
+            const direction = parts[4] ? parts[4].toUpperCase() : 'N';
+    
+            let dd = degrees + minutes + seconds;
+            if (direction === 'S' || direction === 'W') {
+                dd = -dd;
+            }
+            return dd;
         }
-
-        if (precision >= 8) {
-            // 4. Extended Squares (Pair 4: Numbers)
-            ln = (ln * 12) % 1;
-            lt = (lt * 24) % 1;
-            locator += Math.floor(ln * 10);
-            locator += Math.floor(lt * 10);
+    
+        /**
+         * Converts Decimal Degrees (lat, lon) to a Maidenhead Locator (up to 8 characters).
+         */
+        function ddToMaidenhead(lat, lon, precision = 6) {
+            if (lat < -90 || lat > 90) throw new Error("Latitude must be between -90 and 90");
+            if (lon < -180 || lon > 180) throw new Error("Longitude must be between -180 and 180");
+    
+            // Adjust scale to start from South Pole and Antimeridian
+            let ln = lon + 180;
+            let lt = lat + 90;
+    
+            let locator = "";
+    
+            // 1. Fields (Pairs 1: Characters)
+            locator += String.fromCharCode(65 + Math.floor(ln / 20));
+            locator += String.fromCharCode(65 + Math.floor(lt / 10));
+    
+            // 2. Squares (Pair 2: Numbers)
+            ln %= 20;
+            lt %= 10;
+            locator += Math.floor(ln / 2);
+            locator += Math.floor(lt / 1);
+    
+            if (precision >= 6) {
+                // 3. Subsquares (Pair 3: Lowercase Characters)
+                ln %= 2;
+                lt %= 1;
+                locator += String.fromCharCode(97 + Math.floor(ln * 12));
+                locator += String.fromCharCode(97 + Math.floor(lt * 24));
+            }
+    
+            if (precision >= 8) {
+                // 4. Extended Squares (Pair 4: Numbers)
+                ln = (ln * 12) % 1;
+                lt = (lt * 24) % 1;
+                locator += Math.floor(ln * 10);
+                locator += Math.floor(lt * 10);
+            }
+    
+            return locator;
         }
-
-        return locator;
-    }
-
-    function latLonToMaidenhead(latStr, lonStr, precision = 6) {
-        const lat = dmsToDd(latStr);
-        const lon = dmsToDd(lonStr);
-        return ddToMaidenhead(lat, lon, precision);
-    }
-
-    function toggleRows(elementId){
-        let groupElement = document.getElementById(elementId);
-        let groupHeader = groupElement.querySelector('th');
-
-        // Select all <tr> elements that are siblings coming AFTER the <tr> containing a <th>
-        const rowsAfterHeader = groupElement.querySelectorAll('tr:not(:first-child)');
-
-        if (groupHeader.hasAttribute('data-collapse')) {
-            rowsAfterHeader.forEach((row) => {
-                row.style.display = "none";
-            });
-            groupHeader.textContent = groupElement.id + " 🔼";
-            groupHeader.removeAttribute('data-collapse');
-            groupHeader.setAttribute('data-expand', '');
-        } else if (groupHeader.hasAttribute('data-expand')){
-            rowsAfterHeader.forEach((row) => {
-                row.style.display = "";
-            });
-            groupHeader.textContent = groupElement.id + " 🔽";
-            groupHeader.removeAttribute('data-expand');
-            groupHeader.setAttribute('data-collapse', '');
+    
+        function latLonToMaidenhead(latStr, lonStr, precision = 6) {
+            const lat = dmsToDd(latStr);
+            const lon = dmsToDd(lonStr);
+            return ddToMaidenhead(lat, lon, precision);
         }
-    }
-
-    // 1. Initialize the map centered on a general region (e.g., Latitude 0, Longitude 0)
-    const map = L.map('map').setView([41.617501, -86.277268], 10);
-
-    // 2. Add a free OpenStreetMap tile background layer
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
-
-    // 3. Define an array of your GeoJSON URLs and custom styling for each
-    const geoJsonLayers = [
-        {
-            url: 'https://services.arcgis.com/OjftlhRHkAABcyiF/arcgis/rest/services/EMA_Sirens_1MileBuffer/FeatureServer/0/query?where=1%3D1&outFields=*&f=geojson',
-            style: { color: '#ff7800', weight: 2, fillOpacity: 0.1 }
-        },
-        {
-            url: 'https://services.arcgis.com/OjftlhRHkAABcyiF/arcgis/rest/services/Siren_Locations_2019/FeatureServer/0/query?where=1%3D1&outFields=*&f=geojson',
-            style: { color: '#0078ff', weight: 5, fillOpacity: 0.5 }
+    
+        function toggleRows(elementId){
+            let groupElement = document.getElementById(elementId);
+            let groupHeader = groupElement.querySelector('th');
+    
+            // Select all <tr> elements that are siblings coming AFTER the <tr> containing a <th>
+            const rowsAfterHeader = groupElement.querySelectorAll('tr:not(:first-child)');
+    
+            if (groupHeader.hasAttribute('data-collapse')) {
+                rowsAfterHeader.forEach((row) => {
+                    row.style.display = "none";
+                });
+                groupHeader.textContent = groupElement.id + " 🔼";
+                groupHeader.removeAttribute('data-collapse');
+                groupHeader.setAttribute('data-expand', '');
+            } else if (groupHeader.hasAttribute('data-expand')){
+                rowsAfterHeader.forEach((row) => {
+                    row.style.display = "";
+                });
+                groupHeader.textContent = groupElement.id + " 🔽";
+                groupHeader.removeAttribute('data-expand');
+                groupHeader.setAttribute('data-collapse', '');
+            }
         }
-        // Add more GeoJSON URLs here...
-    ];
-
-    // 4. Loop through the array, fetch the data, and render it onto the map
-    geoJsonLayers.forEach(layerInfo => {
-        fetch(layerInfo.url)
-            .then(response => {
-                if (!response.ok) throw new Error('Network error fetching data');
-                return response.json();
-            })
-            .then(data => {
-                L.geoJSON(data, {
-                    style: layerInfo.style,
-                    onEachFeature: function (feature, layer) {
-                        // Check if the feature has properties
-                        if (feature.properties) {
-                            // 1. Extract the specific fields for your custom title
-                            const sirenNum = feature.properties.Siren_Num || 'Unknown ID';
-                            const propAddr = feature.properties.PROP_ADDR || '';
-                            let title = 'Siren ' + sirenNum;
-                            if (propAddr) title += ' - ' + propAddr;
-                            const reportSirenURL = feature.properties.Siren_Issu || '';
-                            
-                            // 2. Start the popup HTML with your custom Title format
-                            let popupContent = '<div style="max-height: 250px; overflow-y: auto; font-family: sans-serif;">';
-                            popupContent += `<h3 style="margin: 0 0 12px 0; font-size: 14px; color: #333; border-bottom: 2px solid #333; padding-bottom: 4px;">
-                                                ${title}
-                                            </h3>`;
-
-                            let formatGroupHeader = function(groupName) {
-                                return `<tr class="group-header" onclick="toggleRows('${groupName}')" style="cursor: pointer;"> 
-                                            <th colspan="3" scope="rowgroup" style="background-color: #f0f0f0; padding: 4px; text-align: left;" data-collapse>${groupName} 🔼</th>
-                                        </tr>`;
-                            };
-                            let groupedContent = {
-                                ShapeDetails: {
-                                    groupName: 'Shape Details',
-                                    content: '<tbody id="Shape Details">' + formatGroupHeader('Shape Details'),
-                                    x: 'X',
-                                    y: 'Y',
-                                    BUFF_DIST: 'Buffer Distance',
-                                    Shape_Leng: 'Shape Length',
-                                    Shape_Area: 'Shape Area',
-                                    Shape__Length: 'Shape Length 2',
-                                    Shape__Area: 'Shape Area 2'
-                                },
-                                latlngCoords: {
-                                    groupName: 'Lat/Lng Coords',
-                                    content: '<tbody id="Lat/Lng Coords">' + formatGroupHeader('Lat/Lng Coords'),
-                                    Latitude: 'Latitude',
-                                    Longitude: 'Longitude'
-                                },
-                                maidenheadCoords: {
-                                    groupName: 'Maidenhead Coords',
-                                    content: '<tbody id="Maidenhead Coords">' + formatGroupHeader('Maidenhead Coords'),
-                                    Maidenhead: 'Maidenhead'
-                                },
-                                locationDetails: {
-                                    groupName: 'Location Details',
-                                    content: '<tbody id="Location Details">' +formatGroupHeader('Location Details'),
-                                    Siren: 'Siren',
-                                    Siren_Num: 'Siren Number',
-                                    PROP_ADDR: 'Property Address',
-                                    Elevation: 'Elevation',
-                                    Obstructio: 'Obstruction'
-                                },
-                                other: {
-                                    groupName: 'Other Properties',
-                                    content: '<tbody id="Other Properties">' + formatGroupHeader('Other Properties'),
-                                    FID: "FID",
-                                    Repair_Sta: 'Repair Status',
-                                    Upgraded: 'Upgraded',
-                                    AEP_Meter: 'AEP Meter',
-                                    Batteries: 'Batteries',
-                                    Battery_Ch: 'Battery Charge',
-                                    Battery_Bo: 'Battery Box',
-                                    Radio: 'Radio',
-                                    Antenna: 'Antenna'
-                                },
-                                skipped: {
-                                    groupName: 'Skipped Properties',
-                                    content: '<tbody id="Skipped Properties" hidden>' + formatGroupHeader('Skipped Properties'),
-                                    F2020_Mai_: 'F2020_Mai_',
-                                    FID_1: 'FID_1',
-                                    Siren_Issu: 'Siren Issue URL',
-                                    ORIG_FID: 'ORIG_FID'
-                                }
-                            };
-
-                            // Start an HTML table for clean, scannable formatting              
-                            popupContent += '<table style="border-collapse: collapse; width: 100%; font-family: sans-serif; font-size: 12px;">';
-                            popupContent += `<thead>
-                                <tr>
-                                    <th style="border-bottom: 2px solid #ddd; text-align: left; padding: 4px;">Property</th>
-                                    <th style="border-bottom: 2px solid #ddd; text-align: left; padding: 4px;">Value</th>
-                                </tr></thead>`;
-
-                            // Dynamically loop through all properties for this clicked feature
-                            for (const key in feature.properties) {
-                                // if (groupedContent.skipped.hasOwnProperty(key)) {
-                                //     // Skip this property as it's in the skipped list
-                                //     continue;
-                                // }
-                                if (feature.properties.hasOwnProperty(key)) {
-                                    const val = feature.properties[key];
-                                    let formatContent = function(key, val) {
-                                        return `<tr>
-                                            <td style="border-bottom: 1px solid #ddd; padding: 4px; font-weight: bold; color: #555;">${key}</td>
-                                            <td style="border-bottom: 1px solid #ddd; padding: 4px; word-break: break-all;">${val}</td>
-                                        </tr>`;
-                                    };
-
-                                    if (groupedContent.other.hasOwnProperty(key)) {
-                                        groupedContent.other.content += formatContent(groupedContent.other[key], val);
-                                    } else if (groupedContent.ShapeDetails.hasOwnProperty(key)) {
-                                        groupedContent.ShapeDetails.content += formatContent(groupedContent.ShapeDetails[key], val);
-                                    } else if (groupedContent.locationDetails.hasOwnProperty(key)) {
-                                        groupedContent.locationDetails.content += formatContent(groupedContent.locationDetails[key], val);
-                                    } else if (groupedContent.latlngCoords.hasOwnProperty(key)) {
-                                        groupedContent.latlngCoords.content += formatContent(groupedContent.latlngCoords[key], val);
+    
+        // 1. Initialize the map centered on a general region (e.g., Latitude 0, Longitude 0)
+        const map = L.map('map').setView([41.617501, -86.277268], 10);
+    
+        // 2. Add a free OpenStreetMap tile background layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+    
+        // 3. Define an array of your GeoJSON URLs and custom styling for each
+        const geoJsonLayers = [
+            {
+                url: 'https://services.arcgis.com/OjftlhRHkAABcyiF/arcgis/rest/services/EMA_Sirens_1MileBuffer/FeatureServer/0/query?where=1%3D1&outFields=*&f=geojson',
+                style: { color: '#ff7800', weight: 2, fillOpacity: 0.1 }
+            },
+            {
+                url: 'https://services.arcgis.com/OjftlhRHkAABcyiF/arcgis/rest/services/Siren_Locations_2019/FeatureServer/0/query?where=1%3D1&outFields=*&f=geojson',
+                style: { color: '#0078ff', weight: 5, fillOpacity: 0.5 }
+            }
+            // Add more GeoJSON URLs here...
+        ];
+    
+        // 4. Loop through the array, fetch the data, and render it onto the map
+        geoJsonLayers.forEach(layerInfo => {
+            fetch(layerInfo.url)
+                .then(response => {
+                    if (!response.ok) throw new Error('Network error fetching data');
+                    return response.json();
+                })
+                .then(data => {
+                    L.geoJSON(data, {
+                        style: layerInfo.style,
+                        onEachFeature: function (feature, layer) {
+                            // Check if the feature has properties
+                            if (feature.properties) {
+                                // 1. Extract the specific fields for your custom title
+                                const sirenNum = feature.properties.Siren_Num || 'Unknown ID';
+                                const propAddr = feature.properties.PROP_ADDR || '';
+                                let title = 'Siren ' + sirenNum;
+                                if (propAddr) title += ' - ' + propAddr;
+                                const reportSirenURL = feature.properties.Siren_Issu || '';
+                                
+                                // 2. Start the popup HTML with your custom Title format
+                                let popupContent = '<div style="max-height: 250px; overflow-y: auto; font-family: sans-serif;">';
+                                popupContent += `<h3 style="margin: 0 0 12px 0; font-size: 14px; color: #333; border-bottom: 2px solid #333; padding-bottom: 4px;">
+                                                    ${title}
+                                                </h3>`;
+    
+                                let formatGroupHeader = function(groupName) {
+                                    return `<tr class="group-header" onclick="toggleRows('${groupName}')" style="cursor: pointer;"> 
+                                                <th colspan="3" scope="rowgroup" style="background-color: #f0f0f0; padding: 4px; text-align: left;" data-collapse>${groupName} 🔼</th>
+                                            </tr>`;
+                                };
+                                let groupedContent = {
+                                    ShapeDetails: {
+                                        groupName: 'Shape Details',
+                                        content: '<tbody id="Shape Details">' + formatGroupHeader('Shape Details'),
+                                        x: 'X',
+                                        y: 'Y',
+                                        BUFF_DIST: 'Buffer Distance',
+                                        Shape_Leng: 'Shape Length',
+                                        Shape_Area: 'Shape Area',
+                                        Shape__Length: 'Shape Length 2',
+                                        Shape__Area: 'Shape Area 2'
+                                    },
+                                    latlngCoords: {
+                                        groupName: 'Lat/Lng Coords',
+                                        content: '<tbody id="Lat/Lng Coords">' + formatGroupHeader('Lat/Lng Coords'),
+                                        Latitude: 'Latitude',
+                                        Longitude: 'Longitude'
+                                    },
+                                    maidenheadCoords: {
+                                        groupName: 'Maidenhead Coords',
+                                        content: '<tbody id="Maidenhead Coords">' + formatGroupHeader('Maidenhead Coords'),
+                                        Maidenhead: 'Maidenhead'
+                                    },
+                                    locationDetails: {
+                                        groupName: 'Location Details',
+                                        content: '<tbody id="Location Details">' +formatGroupHeader('Location Details'),
+                                        Siren: 'Siren',
+                                        Siren_Num: 'Siren Number',
+                                        PROP_ADDR: 'Property Address',
+                                        Elevation: 'Elevation',
+                                        Obstructio: 'Obstruction'
+                                    },
+                                    other: {
+                                        groupName: 'Other Properties',
+                                        content: '<tbody id="Other Properties">' + formatGroupHeader('Other Properties'),
+                                        FID: "FID",
+                                        Repair_Sta: 'Repair Status',
+                                        Upgraded: 'Upgraded',
+                                        AEP_Meter: 'AEP Meter',
+                                        Batteries: 'Batteries',
+                                        Battery_Ch: 'Battery Charge',
+                                        Battery_Bo: 'Battery Box',
+                                        Radio: 'Radio',
+                                        Antenna: 'Antenna'
+                                    },
+                                    skipped: {
+                                        groupName: 'Skipped Properties',
+                                        content: '<tbody id="Skipped Properties" hidden>' + formatGroupHeader('Skipped Properties'),
+                                        F2020_Mai_: 'F2020_Mai_',
+                                        FID_1: 'FID_1',
+                                        Siren_Issu: 'Siren Issue URL',
+                                        ORIG_FID: 'ORIG_FID'
+                                    }
+                                };
+    
+                                // Start an HTML table for clean, scannable formatting              
+                                popupContent += '<table style="border-collapse: collapse; width: 100%; font-family: sans-serif; font-size: 12px;">';
+                                popupContent += `<thead>
+                                    <tr>
+                                        <th style="border-bottom: 2px solid #ddd; text-align: left; padding: 4px;">Property</th>
+                                        <th style="border-bottom: 2px solid #ddd; text-align: left; padding: 4px;">Value</th>
+                                    </tr></thead>`;
+    
+                                // Dynamically loop through all properties for this clicked feature
+                                for (const key in feature.properties) {
+                                    // if (groupedContent.skipped.hasOwnProperty(key)) {
+                                    //     // Skip this property as it's in the skipped list
+                                    //     continue;
+                                    // }
+                                    if (feature.properties.hasOwnProperty(key)) {
+                                        const val = feature.properties[key];
+                                        let formatContent = function(key, val) {
+                                            return `<tr>
+                                                <td style="border-bottom: 1px solid #ddd; padding: 4px; font-weight: bold; color: #555;">${key}</td>
+                                                <td style="border-bottom: 1px solid #ddd; padding: 4px; word-break: break-all;">${val}</td>
+                                            </tr>`;
+                                        };
+    
+                                        if (groupedContent.other.hasOwnProperty(key)) {
+                                            groupedContent.other.content += formatContent(groupedContent.other[key], val);
+                                        } else if (groupedContent.ShapeDetails.hasOwnProperty(key)) {
+                                            groupedContent.ShapeDetails.content += formatContent(groupedContent.ShapeDetails[key], val);
+                                        } else if (groupedContent.locationDetails.hasOwnProperty(key)) {
+                                            groupedContent.locationDetails.content += formatContent(groupedContent.locationDetails[key], val);
+                                        } else if (groupedContent.latlngCoords.hasOwnProperty(key)) {
+                                            groupedContent.latlngCoords.content += formatContent(groupedContent.latlngCoords[key], val);
+                                        }
                                     }
                                 }
-                            }
-
-                            // if (feature.properties.Latitude && feature.properties.Longitude) {
-                            //     const maidenhead = latLonToMaidenhead(feature.properties.Latitude, feature.properties.Longitude);
-                            //     groupedContent.maidenheadCoords.content += `<tr>
-                            //         <td style="border-bottom: 1px solid #ddd; padding: 4px; font-weight: bold; color: #555;">Maidenhead</td>
-                            //         <td style="border-bottom: 1px solid #ddd; padding: 4px; word-break: break-all;">${maidenhead}</td>
-                            //     </tr>`;
-                            // }
-
-                            for (const key in groupedContent) {
-                                if (groupedContent.hasOwnProperty(key)) {
-                                    groupedContent[key].content += '</tbody>';
-                                    popupContent += groupedContent[key].content;
+    
+                                // if (feature.properties.Latitude && feature.properties.Longitude) {
+                                //     const maidenhead = latLonToMaidenhead(feature.properties.Latitude, feature.properties.Longitude);
+                                //     groupedContent.maidenheadCoords.content += `<tr>
+                                //         <td style="border-bottom: 1px solid #ddd; padding: 4px; font-weight: bold; color: #555;">Maidenhead</td>
+                                //         <td style="border-bottom: 1px solid #ddd; padding: 4px; word-break: break-all;">${maidenhead}</td>
+                                //     </tr>`;
+                                // }
+    
+                                for (const key in groupedContent) {
+                                    if (groupedContent.hasOwnProperty(key)) {
+                                        groupedContent[key].content += '</tbody>';
+                                        popupContent += groupedContent[key].content;
+                                    }
                                 }
+                                
+                                popupContent += '</table>';
+                                if (reportSirenURL) {
+                                    popupContent += `<div style="margin-top: 12px; text-align: center;">
+                                        <a href="${reportSirenURL}" title="Report Siren Issue" target="_blank" class="bottom-button">⚠️</a>
+                                    </div>`;
+                                }
+                                popupContent += '</div>';
+    
+                                
+                                // Bind the structured content to the map layer
+                                layer.bindPopup(popupContent, { maxWidth: 300 });
                             }
-                            
-                            popupContent += '</table>';
-                            if (reportSirenURL) {
-                                popupContent += `<div style="margin-top: 12px; text-align: center;">
-                                    <a href="${reportSirenURL}" title="Report Siren Issue" target="_blank" class="bottom-button">⚠️</a>
-                                </div>`;
-                            }
-                            popupContent += '</div>';
-
-                            
-                            // Bind the structured content to the map layer
-                            layer.bindPopup(popupContent, { maxWidth: 300 });
                         }
-                    }
-                }).addTo(map);
-            })
-            .catch(error => console.error('Error loading GeoJSON:', error));
-    });
-</script>
+                    }).addTo(map);
+                })
+                .catch(error => console.error('Error loading GeoJSON:', error));
+        });
+    </script>
+</div>
