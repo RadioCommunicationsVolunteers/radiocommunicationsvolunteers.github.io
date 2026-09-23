@@ -1,5 +1,13 @@
-{{ $title := default "Siren Test Locations" (.Get "title") }}
+{{ $title := .Get "title" | default "Siren Test Locations" -}}
+{{ $col_id := .Get "color" | default .Ordinal -}}
+{{ $height := .Get "height" | default "auto"  -}}
+{{ $type   := .Get "type" | default "container" -}}
 
+<div><a id="td-block-{{ .Ordinal }}" class="td-anchor-no-extra-offset"></a></div>
+<section class="row td-box td-box--{{ $col_id }} td-box--height-{{ $height }}">
+<div class="col">
+<div class="{{ $type }}">
+{{/* Do NOT remove this comment! It ends the HTML block above. See https://spec.commonmark.org/0.30/#html-blocks, 7. */}}
     <!-- Include Leaflet CSS and JS (Free & Open Source) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -20,9 +28,7 @@
         }
     </style>
     
-    <div id="map">
-        
-    </div>
+    <div id="map"></div>
 
     <script>
         /**
@@ -293,3 +299,7 @@
                 .catch(error => console.error('Error loading GeoJSON:', error));
         });
     </script>
+</div>
+</div>
+</section>
+{{/**/ -}}
