@@ -8,6 +8,7 @@
 <div class="col">
 <div class="{{ $type }}">
 {{/* Do NOT remove this comment! It ends the HTML block above. See https://spec.commonmark.org/0.30/#html-blocks, 7. */}}
+{{<
     <!-- Include Leaflet CSS and JS (Free & Open Source) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -299,6 +300,7 @@
                 .catch(error => console.error('Error loading GeoJSON:', error));
         });
     </script>
+>}}
 </div>
 </div>
 </section>
