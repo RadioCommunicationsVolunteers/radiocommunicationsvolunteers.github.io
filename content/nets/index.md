@@ -19,6 +19,4 @@ menu: { main: { name: "Nets",  identifier: "nets", weight: 50 } }
 
 {{% blocks/section %}}
 
-{{% sirentestmap %}}
-
 {{% /blocks/section %}}
