@@ -11,7 +11,7 @@ description: Providing Radio Communication Support for Public Events and Communi
 </style>
 
 {{% alert title="⚠️ NOTICE ⚠️" color=warning %}}  
-  As of September 7th, 2026, Our weekly net will be held on the **WB9AGX** repeater with a frequency of **147.390 MHz** and a **PL tone** of **131.8**.  
+  As of September 7th, 2026, Our weekly net will be held every Tuesday night at 7:00 PM EST on the **WB9AGX** repeater with a frequency of **147.390 MHz** and a **PL tone** of **131.8**.  
   The **145.290 MHz** repeater (*formerly N9OCB*) located at the Saint Joseph County Fairgrounds is currently under maintenance.
 
   Thank you for your continued support. 73.  
@@ -64,7 +64,7 @@ Our monthly meetings are held on the third monday of each month at 6:30 PM EST. 
 {{% blocks/lead color="secondary" %}}
 ## Weekly Net
 
-Our weekly net is held at 7:00 PM EST on the **WB9AGX repeater on 147.390 with a PL tone of 131.8**. All amateur radio operators are welcome to participate.
+Our weekly net is held every Tuesday at 7:00 PM EST on the **WB9AGX repeater on 147.390 with a PL tone of 131.8**. All amateur radio operators are welcome to participate.
 {{% /blocks/lead %}}
 
 {{% blocks/lead color="white" %}}
