@@ -10,9 +10,8 @@ description: Providing Radio Communication Support for Public Events and Communi
   }
 </style>
 
-{{% alert title="⚠️ NOTICE ⚠️" color=warning %}}  
-  As of September 7th, 2026, Our weekly net will be held every Tuesday night at 7:00 PM EST on the **WB9AGX** repeater with a frequency of **147.390 MHz** and a **PL tone** of **131.8**.  
-  The **145.290 MHz** repeater (*formerly N9OCB*) located at the Saint Joseph County Fairgrounds is currently under maintenance.
+{{% alert title="⚠️ NOTICE ⚠️" color=danger %}}  
+  As of November 5th, 2026, the **WB9AGX** repeater is no longer in service. Our weekly net will be held every Tuesday night at 7:00 PM EST on the **W9AB** repeater with a frequency of **147.225 MHz** and a **PL tone** of **131.8**.
 
   Thank you for your continued support. 73.  
   *George Palmer* | KD9GXA  
@@ -64,15 +63,15 @@ Our monthly meetings are held on the third monday of each month at 6:30 PM EST. 
 {{% blocks/lead color="secondary" %}}
 ## Weekly Net
 
-Our weekly net is held every Tuesday at 7:00 PM EST on the **WB9AGX repeater on 147.390 with a PL tone of 131.8**. All amateur radio operators are welcome to participate.
+Our weekly net is held every Tuesday at 7:00 PM EST on the **W9AB** repeater with a frequency of **147.225 MHz** and a **PL tone** of **131.8**. All amateur radio operators are welcome to participate.
 {{% /blocks/lead %}}
 
 {{% blocks/lead color="white" %}}
 ## Siren Test Net
 
-Siren test Nets have resumed and occur monthly on the first Thursday. The net will begin around 11:30 AM EST on the **WB9AGX repeater on 147.390 with a PL tone of 131.8**. We encourage all amateurs to check-in and report if they hear the sirens or not. It helps to know the siren number or
+Siren test Nets have resumed and occur monthly on the first Thursday. The net will begin around 11:30 AM EST on the **W9AB** repeater with a frequency of **147.225 MHz** and a **PL tone** of **131.8**. We encourage all amateurs to check-in and report if they hear the sirens or not. It helps to know the siren number or
 general location when reporting. It also helps to have reports from family members as well. If you can not check but heard ot did not hear the sirens.  
-We will forward any reports received to the county EMA. Click below to send a Siren Report.
+We will forward any reports received to the St. Joseph County EMA. Click below to send a Siren Report.
 
 <!-- prettier-ignore -->
 <div class="td-cta-buttons my-5">
