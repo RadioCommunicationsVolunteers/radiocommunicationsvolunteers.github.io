@@ -11,7 +11,8 @@ description: Providing Radio Communication Support for Public Events and Communi
 </style>
 
 {{% alert title="⚠️ NOTICE ⚠️" color=danger %}}  
-  As of November 5th, 2026, the **WB9AGX** repeater is no longer in service. Our weekly net will be held every Tuesday night at 7:00 PM EST on the **W9AB** repeater with a frequency of **147.225 MHz** and a **PL tone** of **131.8**.
+  As of November 5th, 2026, the **WB9AGX** repeater is temporarily out of service until further notice. 
+  Our weekly net will be held every Tuesday night at 7:00 PM EST on the **W9AB** repeater with a frequency of **147.225 MHz** and a **PL tone** of **131.8**.
 
   Thank you for your continued support. 73.  
   *George Palmer* | KD9GXA  
